@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+var MaxDice int64 = 1000
+
 type RollResult interface {
 	fmt.Stringer
 	Description() string

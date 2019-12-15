@@ -33,6 +33,9 @@ func (FudgeRoller) Roll(matches []string) (RollResult, error) {
 	if err != nil {
 		return nil, err
 	}
+	if dice > MaxDice {
+		return nil, fmt.Errorf("too many dice: %d", dice)
+	}
 
 	result := FudgeResult{
 		basicRollResult: basicRollResult{matches[0]},

@@ -34,6 +34,9 @@ func (StdRoller) Roll(matches []string) (RollResult, error) {
 	if err != nil {
 		return nil, err
 	}
+	if dice > MaxDice {
+		return nil, fmt.Errorf("too many dice: %d", dice)
+	}
 
 	sides, err := strconv.ParseInt(matches[2], 10, 0)
 	if err != nil {
